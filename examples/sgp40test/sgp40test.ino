@@ -23,10 +23,15 @@ void setup() {
 int counter = 0;
 void loop() {
   uint16_t raw;
-  
-  raw = sgp.measureRaw();
+  int32_t voc_index;
 
-  Serial.print("Measurement: ");
+  raw = sgp.measureRaw();
+  Serial.print("Raw Gas Measurement : ");
   Serial.println(raw);
+
+  voc_index = sgp.measureVocIndex();
+  Serial.print("Voc Index           : ");
+  Serial.println(voc_index);
+
   delay(1000);
 }
